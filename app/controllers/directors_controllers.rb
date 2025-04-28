@@ -1,5 +1,5 @@
-class DirectorsController <ApplicationController
+class DirectorsController < ApplicationController
   def index 
-    render({:template=> "templates/"})
+    render({:template=> "director_templates/list"})
   end 
 end
