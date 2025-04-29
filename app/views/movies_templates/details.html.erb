@@ -16,17 +16,18 @@
 
   <dt>Director</dt>
   <dd> 
-    <%=matching_records=@the_movie.director_id%>
-    <%=@the_movie.bio%></dd>
+    <%=matching_records=Director.where({:id => @the_movie.director_id})%>
+    <%=the_director=matching_records.at(0)%>
+    <%=the_director,name%></dd>
 
   <dt>Image</dt>
   <dd> <img scr="<%=@the_movie.image%>" width="200"</dd>
 
   <dt>Created at</dt>
-  <dd> <%=@the_director.created_at%></dd>
+  <dd> <%=@the_movie.created_at%></dd>
 
   <dt>Updated at</dt>
-  <dd> <%=@the_director.updated_at%></dd>
+  <dd> <%=@the_movie.updated_at%></dd>
   </dl>
 </hr>
 
