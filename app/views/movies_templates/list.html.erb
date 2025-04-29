@@ -1,0 +1,31 @@
+<h1> List of movies </h1>
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Image</th>
+    <th>Title</th>
+    <th>Year</th>
+    <th>Director</th>
+    <th></th>
+  </tr>
+
+<% Movies.all.each do |a_movie|%>
+  <tr>
+    <td><%=a_movie.id%></td>
+      <td>
+        <img src="<%=a_movie.image %>" width="100">
+      </td>
+    <td><%=a_movie.name%></td>
+    <td><%=a_movie.year%></td>
+    <td>
+      <%matching_re=Director.where({:id => a_movie.director_id})%>
+      <%the_director=matching_rec.at(0)%></td>
+      <%=the_director.name%></td>
+    <td>
+    <a href="/movies/<%= a_movies.id %>" </a>
+    Show details</td>
+  </tr>
+<%end%>
+
+  
