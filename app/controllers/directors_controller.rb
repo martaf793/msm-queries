@@ -8,4 +8,17 @@ class DirectorsController < ApplicationController
     @the_director=@matching_rec.at(0)
     render({:template => "director_templates/details"})
   end 
+
+  def junior
+    @junior_rec=Director.where.not({:dob=>nil}).order({:dob=> :desc})
+    @junior=@junior_rec.at(0)
+    render({:template=> "director_templates/junior"})
+  end
+
+  def senior 
+    @senior_rec=Director.where.not({:dob=>nil}).order({:dob=> :asc})
+    @senior=@senior_rec.at(0)
+    render({:template=> "director_templates/senior"})
+  end
+
 end
